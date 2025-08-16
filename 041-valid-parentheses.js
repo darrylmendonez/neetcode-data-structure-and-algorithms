@@ -62,22 +62,22 @@ const isValid = (s) => {
         "]": "[",
     };
     for(let char of s) {
-        if(closeToOpen[char]) { // if the char is a closing bracket
+        if(closeToOpen[char]) { // if the char is a closer
             if(
                 stack.length > 0 && 
-                stack[stack.length - 1] === closeToOpen[char]) { // check if the last element in the stack is the matching opening bracket
+                stack[stack.length - 1] === closeToOpen[char]) { // check if the last element in the stack is the matching opener
                 stack.pop();
             } else {
                 return false;
             }
         } else {
-            stack.push(char); // if it's an opening bracket, push it onto the stack
+            stack.push(char); // if it's an opener, push it onto the stack
         }
     }
-    if (stack.length === 0) { // if the stack is empty, all brackets were matched
+    if (stack.length === 0) { // if the stack is empty, all parentheses types were matched
         return true;
     }
-    return false; // if there are unmatched opening brackets, return false
+    return false; // if there are unmatched openers, return false
 };
 
 console.log(isValid("()")); // true
@@ -89,3 +89,7 @@ console.log(isValid("(]")); // false
 console.log(isValid("([])")); // true
 
 console.log(isValid("([)]")); // false
+
+console.log(isValid("([")); // false
+
+console.log(isValid("}]")); // false
