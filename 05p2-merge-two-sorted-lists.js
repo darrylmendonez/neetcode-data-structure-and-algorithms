@@ -50,23 +50,23 @@ const mergeTwoLists = (list1, list2) => {
     val: 0,
     next: null,
   };
-  let node = dummy;
+  let tail = dummy;
 
   while (list1 && list2) { // while both lists are not null
     if (list1.val < list2.val) {
-      node.next = list1;
+      tail.next = list1;
       list1 = list1.next
     } else {
-      node.next = list2
+      tail.next = list2
       list2 = list2.next
     }
-    node = node.next;
+    tail = tail.next;
   }
-  // if one of the lists are null or one list is longer than the other, then point the node list to the rest of the non-null list
+  // if one of the lists are null or one list is longer than the other, then point the tail list to the rest of the non-null list
   if (list1) {
-    node.next = list1;
+    tail.next = list1;
   } else {
-    node.next = list2
+    tail.next = list2
   }
   return dummy.next; // return the list
 };
