@@ -44,6 +44,8 @@
 // homepage and url consist of  '.' or lower case English letters.
 // At most 5000 calls will be made to visit, back, and forward.
 
+// Doubly Linked List Solution
+
 class ListNode {
   constructor(val, prev = null, next = null) {
     this.val = val;
@@ -109,3 +111,44 @@ class BrowserHistory {
  * var param_2 = obj.back(steps)
  * var param_3 = obj.forward(steps)
  */
+
+// Dynamic Array Solution
+
+class ArrayBrowserHistory {
+    /**
+     * @constructor
+     * @param {string} homepage
+     */
+    constructor(homepage) {
+        this.history = [homepage];
+        this.cur = 0;
+    }
+
+    /**
+     * @param {string} url
+     * @return {void}
+     */
+    visit(url) {
+        this.cur++;
+        this.history = this.history.slice(0, this.cur);
+        this.history.push(url);
+    }
+
+    /**
+     * @param {number} steps
+     * @return {string}
+     */
+    back(steps) {
+        this.cur = Math.max(0, this.cur - steps);
+        return this.history[this.cur];
+    }
+
+    /**
+     * @param {number} steps
+     * @return {string}
+     */
+    forward(steps) {
+        this.cur = Math.min(this.history.length - 1, this.cur + steps);
+        return this.history[this.cur];
+    }
+}
