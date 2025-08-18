@@ -46,13 +46,19 @@
  * @return {ListNode}
  */
 const mergeTwoLists = (list1, list2) => {
-  const dummy = { // create a dummy so you don't have to worry about inserting into an empty list
-    val: 0,
-    next: null,
-  };
+
+  // create a dummy so you don't have to worry about inserting into an empty list
+  const dummy = new ListNode();
+
+  // or:
+  // const dummy = {
+  //   val: 0,
+  //   next: null,
+  // };
+
   let tail = dummy;
 
-  while (list1 && list2) { // while both lists are not null
+  while (list1 && list2) { // while both lists are not null because that's when we can compare the two values
     if (list1.val < list2.val) {
       tail.next = list1;
       list1 = list1.next
@@ -62,11 +68,13 @@ const mergeTwoLists = (list1, list2) => {
     }
     tail = tail.next;
   }
+
   // if one of the lists are null or one list is longer than the other, then point the tail list to the rest of the non-null list
-  if (list1) {
-    tail.next = list1;
-  } else {
-    tail.next = list2
-  }
+  if (l1) {
+        tail.next = l1; // taking the remaining portion of l1 and inserting it into the end of the list
+      }
+      if (l2) {
+        tail.next = l2; // taking the remaining portion of l2 and inserting it into the end of the list
+      }
   return dummy.next; // return the list
 };
