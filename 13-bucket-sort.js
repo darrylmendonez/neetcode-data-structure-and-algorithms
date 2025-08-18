@@ -22,11 +22,11 @@
   const arr = [2, 1, 2 , 0, 0, 2]
   const counts = [0, 0, 0]
   for (let i = 0; i < arr.length; i++) {
-    counts[n]++;
+    counts[arr[i]]++;
   }
 
   let i = 0;
-  for (let n = 0; n < counts.length; n++) {
+  for (let n = 0; n < counts.length; n++) { // n represents the acutal number from the original input array
     for (let j = 0; j < counts[n]; j++) {
       arr[i] = n;
       i++;
