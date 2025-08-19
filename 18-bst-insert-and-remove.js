@@ -14,18 +14,21 @@
 // option 2 is easier because it's easier to insert a node as a leaf node
 
 const insert = (root, val) => {
-  if (!null) {
-    return TreeNode(val);
+  if (!root) { // base case: given the recursive calls, the function has traversed down and found an empty spot where the new node should be placed
+    return new TreeNode(val);
   }
 
   if (val > root.val) {
-    root.right =insert(root.right, val);
+    root.right = insert(root.right, val);
   } else if (val < root.val) {
     root.left = insert(root.left, val);
   } else {
     return root;
   }
 }
+
+// How it works:
+// Imagine you are inserting val into root.right. The call is root.right = insert(root.right, val). If root.right was initially null, the insert function immediately hits this base case. It creates new TreeNode(val) and returns it. This returned node is then assigned to root.right, effectively linking the new node into the tree as the right child of root.
 
 // time complexity: O(log n)
 
