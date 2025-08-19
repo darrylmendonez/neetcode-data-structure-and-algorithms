@@ -22,9 +22,8 @@ const insert = (root, val) => {
     root.right = insert(root.right, val);
   } else if (val < root.val) {
     root.left = insert(root.left, val);
-  } else {
-    return root;
   }
+  return root; // Return the (possibly modified) root node
 }
 
 // How it works:
