@@ -45,5 +45,41 @@ class Solution {
      * @param {number} key
      * @return {TreeNode}
      */
-    deleteNode(root, key) {}
+    deleteNode(root, key) {
+      // base case
+      if (!root) return null;
+
+      // search for key node
+      if (key > root.val) {
+        root.right = this.deleteNode(root.right, key);
+      } else if (key < root.val) {
+        root.left = this.deleteNode(root.left, key);
+
+      // found key node
+      } else {
+
+        // if key node has 0 or 1 children
+        if (!root.left) {
+          return root.right;
+        } else if (!root.right) {
+          return root.left;
+
+          // if key node has 2 children
+        } else {
+          const minNode = this.minValueNode(root.right);
+          root.val = minNode.val;
+          root.right = this.deleteNode(root.right, minNode.val);
+        }
+        
+      }
+      return root;
+    }
+
+    minValueNode(root) {
+      let curr = root;
+      while (curr && curr.left) {
+        curr = curr.left;
+      }
+      return curr;
+    }
 }

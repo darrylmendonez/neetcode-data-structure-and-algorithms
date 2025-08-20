@@ -18,6 +18,7 @@ const insert = (root, val) => {
     return new TreeNode(val);
   }
 
+  // search for a null value to insert val
   if (val > root.val) {
     root.right = insert(root.right, val);
   } else if (val < root.val) {
