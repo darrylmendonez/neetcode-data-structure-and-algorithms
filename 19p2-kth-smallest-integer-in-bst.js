@@ -66,8 +66,8 @@ class Solution {
       const stack = [];
       let current = root;
 
-      while (current || stack.length > 0) {
-        while (current) {
+      while (stack.length > 0 || current !== null) {
+        while (current !== null) {
           stack.push(current); // add current node to the stack so we remember to go back to it later
           current = current.left; // move down to left child
         } // once this loop exits that must mean current is null
