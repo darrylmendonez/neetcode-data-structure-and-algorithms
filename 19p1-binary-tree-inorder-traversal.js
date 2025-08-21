@@ -69,7 +69,7 @@ class Solution {
         while (current) {
           stack.push(current) // add current node to the stack so we remember to go back to it later
           current = current.left; // move down to left child
-        } // once this loop exists that must mean current is pointing at null
+        } // once this loop exits that must mean current is null
         current = stack.pop(); // so we go back up to the parent
         result.push(current.val); // push the current value to the result array
         current = current.right; // check the right child
