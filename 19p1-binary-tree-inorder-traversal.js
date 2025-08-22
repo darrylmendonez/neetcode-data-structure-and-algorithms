@@ -47,11 +47,13 @@ class Solution {
       const result = [];
 
       const inorder = (root) => {
-      if (!root) return;
+        if (!root) {
+            return false;
+        }
 
-      inorder(root.left); // keep going to the left until we reach a node that has null for its left child
-      result.push(root.val); // push the current node's value to result
-      inorder(root.right); // check right child
+        inorder(root.left); // keep going to the left until we reach a node that has null for its left child
+        result.push(root.val); // push the current node's value to result
+        inorder(root.right); // check right child
       }
 
       inorder(root); // call the recursive function

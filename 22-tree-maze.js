@@ -25,9 +25,10 @@
       return false;
     }
 
-    if (!root.left && !root.right) { // is it a leaf node?
-      return true;
+    if (!root.left && !root.right) { // it is a valid node but is it a leaf node?
+      return true; // we have found the leaf node so return true
     }
+
     if (canReachLeaf(root.left)) { // does it have a left child?
       return true;
     }
