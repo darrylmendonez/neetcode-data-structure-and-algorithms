@@ -61,18 +61,30 @@ const isValid = (s) => {
         "}": "{",
         "]": "[",
     };
+
+    // loop through each character of string s
     for(let char of s) {
-        if(closeToOpen[char]) { // if the char is a closer
-            if(
+
+        // if the char is an opener
+        if(closeToOpen[char]) { 
+
+            // check if this is a valid pair of parentheses
+            if (
                 stack.length > 0 && 
                 stack[stack.length - 1] === closeToOpen[char]) { // check if the last element in the stack is the matching opener
                 stack.pop();
+
+            // not a valid pair:
             } else {
                 return false;
             }
+        
+        
+        // if the char is an closer
         } else {
             stack.push(char); // if it's an opener, push it onto the stack
         }
+
     }
     if (stack.length === 0) { // if the stack is empty, all parentheses types were matched
         return true;

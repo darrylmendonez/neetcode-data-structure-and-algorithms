@@ -14,10 +14,10 @@
   const search = (root, target) => {
     if (!root) return false;
 
-    if (target > root.val) {
-      return search(root.right, target)
-    } else if (target < root.val) {
+    if (target < root.val) {
       return search(root.left, target)
+    } else if (target > root.val) {
+      return search(root.right, target)
     } else {
       return true
     }

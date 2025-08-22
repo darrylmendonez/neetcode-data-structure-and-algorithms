@@ -42,10 +42,10 @@ class Solution {
       if (!root) { // base case: given the recursive calls, the function has traversed down and found an empty spot where the new node should be placed
         return new TreeNode(val);
       }
-      if (val > root.val) {
-        root.right = this.insertIntoBST(root.right, val);
-      } else if (val < root.val) {
+      if (val < root.val) {
         root.left = this.insertIntoBST(root.left, val);
+      } else {
+        root.right = this.insertIntoBST(root.right, val);
       }
       return root; // Return the (possibly modified) root node
     }

@@ -19,10 +19,10 @@ const insert = (root, val) => {
   }
 
   // search for a null value to insert val
-  if (val > root.val) {
-    root.right = insert(root.right, val);
-  } else if (val < root.val) {
+  if (val < root.val) {
     root.left = insert(root.left, val);
+  } else if (val > root.val) {
+    root.right = insert(root.right, val);
   }
   return root; // Return the (possibly modified) root node
 }
