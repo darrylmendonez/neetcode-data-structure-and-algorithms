@@ -61,12 +61,14 @@ class Heap {
     this.heap.push(val);
     idx = this.heap.length - 1;
 
+    const parent = i / 2;
+
     // Percolate up
-    while (this.heap[i] < this.heap[Math.floor(i / 2)]) {
+    while (this.heap[i] < this.heap[Math.floor(parent)]) {
       const temp = this.heap[i];
-      this.heap[i] = this.heap[Math.floor(i / 2)];
-      this.heap[Math.floor(i / 2)] = temp;
-      idx = Math.floor(i / 2);
+      this.heap[i] = this.heap[Math.floor(parent)];
+      this.heap[Math.floor(parent)] = temp;
+      idx = Math.floor(parent);
     }
   }
 
