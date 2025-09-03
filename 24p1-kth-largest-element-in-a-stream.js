@@ -28,7 +28,7 @@
 // -1000 <= val <= 1000
 // There will always be at least k integers in the stream when you search for the kth integer.
 
-import { Heap } from 'heap-js'; // Corrected import path
+import { Heap } from 'heap-js';
 
 class KthLargest {
     /**
