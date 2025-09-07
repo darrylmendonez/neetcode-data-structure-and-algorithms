@@ -68,7 +68,7 @@ var maxAreaOfIsland = function(grid) {
       return currentArea;
     }
 
-    let maxArea = 0;
+    let result = 0;
     for (let r = 0; r < rows; r++) {
       for (let c = 0; c < cols; c++) {
         const pos = r + ',' + c;
@@ -76,10 +76,10 @@ var maxAreaOfIsland = function(grid) {
           grid[r][c] === 1 && // Check if the cell is land
           !visited.has(pos) // and has not been visited yet
         ) {
-          maxArea = Math.max(maxArea, dfs(r, c));
+          result = Math.max(result, dfs(r, c));
         }
       }
     }
 
-    return maxArea
+    return result
 };
