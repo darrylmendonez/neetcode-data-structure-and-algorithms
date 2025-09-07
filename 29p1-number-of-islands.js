@@ -41,6 +41,58 @@
  * @param {character[][]} grid
  * @return {number}
  */
+
+// DFS Solution:
+var numIslandsDFS = function(grid) {
+  if (grid.length === 0) {
+    return 0;
+  }
+
+  let result = 0;
+  const rows = grid.length;
+  const cols = grid[0].length;
+  const directions = [
+    [0, 1],
+    [0, -1],
+    [1, 0],
+    [-1, 0],
+  ];
+  const visited = new Set();
+
+  const dfs = (r, c) => {
+    const currPosAsString = r + ',' + c;
+    if (
+      r < 0 ||
+      c < 0 ||
+      r >= rows ||
+      c >= cols ||
+      grid[r][c] === '0' ||
+      visited.has(currPosAsString)
+    ) {
+      return 0;
+    }
+    visited.add(currPosAsString);
+    for (const [dr, dc] of directions) {
+      dfs(r + dr, c + dc);
+    }
+  }
+
+  for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < cols; c++) {
+      const currPos = grid[r][c];
+      const currPosAsString = r + ',' + c;
+      if (
+        currPos === '1' &&
+        !visited.has(currPosAsString)
+      ) {
+        dfs(r, c);
+        result++;
+      }
+    }
+  }
+  return result;
+}
+
 var numIslands = function(grid) {
     if (grid.length === 0) {
       return 0;
@@ -60,17 +112,17 @@ var numIslands = function(grid) {
 
     const bfs = (startRow, startCol) => {
       const queue = new Queue();
-      const startPos = startRow + ',' + startCol;
+      const startPosAsString = startRow + ',' + startCol;
       
       queue.push([startRow, startCol]);
-      visited.add(startPos);
+      visited.add(startPosAsString);
 
       while (!queue.isEmpty()) {
         const [row, col] = queue.pop();
         for (const [rowOffset, colOffset] of directions) {
           const neighborRow = row + rowOffset;
           const neighborCol = col + colOffset;
-          const neighborPos = neighborRow + ',' + neighborCol;
+          const neighborPosAsString = neighborRow + ',' + neighborCol;
 
           if (
             neighborRow >= 0 && // is neighbor within top boundary
@@ -78,10 +130,10 @@ var numIslands = function(grid) {
             neighborRow < rows && // is neighbor within bottom boundary
             neighborCol < cols && // is neighbor within right boundary
             grid[neighborRow][neighborCol] === '1' && // is neighbor cell land
-            !visited.has(neighborPos) // has neighbor not been visited
+            !visited.has(neighborPosAsString) // has neighbor not been visited
           ) {
             queue.push([neighborRow, neighborCol]);
-            visited.add(neighborPos);
+            visited.add(neighborPosAsString);
           }
         }
       }
