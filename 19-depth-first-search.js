@@ -29,7 +29,9 @@
   // solution: 2, 3, 4, 5, 6, 7
 
   const inorder = (root) => {
-    if (!root) return;
+    if (!root) {
+      return;
+    }
     inorder(root.left); // keep going to the left until we reach a node that has null for its left child
     console.log(root.val); // process or, in this case, print the current node's value
     inorder(root.right); // check right child
@@ -44,7 +46,9 @@
   // we can modify the inorder function slightly by processing the root.val first, then recursively call the left child, then the right
 
   const preorder = (root) => {
-    if (!root) return;
+    if (!root) {
+      return;
+    }
     console.log(root.val); // process or, in this case, print the current node's value
     preorder(root.left); // check left child
     preorder(root.right); // check right child
@@ -56,7 +60,9 @@
   // when we want to traverse all the values in the left subtree and then traverse all the values on the right and then process the root node
 
   const postorder = (root) => {
-    if (!root) return;
+    if (!root) {
+      return;
+    }
     postorder(root.left); // check left child
     postorder(root.right); // check right child
     console.log(root.val); // process or, in this case, print the current node's value
@@ -65,7 +71,9 @@
 // reverse inorder
 
   const reverseInorder = (root) => {
-    if (!root) return;
+    if (!root) {
+      return;
+    }
     reverseInorder(root.right); // keep going to the right until we reach a node that has null for its right child
     console.log(root.val); // process or, in this case, print the current node's value
     reverseInorder(root.left); // check left child
