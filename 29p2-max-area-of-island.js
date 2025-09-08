@@ -81,5 +81,5 @@ var maxAreaOfIsland = function(grid) {
       }
     }
 
-    return result
+    return result;
 };
