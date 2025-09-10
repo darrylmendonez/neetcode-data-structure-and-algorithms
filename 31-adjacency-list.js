@@ -86,5 +86,5 @@ const bfs = (node, target, adjList) => {
 
 console.log(bfs("A", "E", adjList));
 
-// TC: O(v + e) where v is the number of vertices and e is the number of edges in the graph
+// TC: O(v + e) where v is the number of vertices and e is the number of edges in the graph and where in the worst case we have to visit each vertex and each edge
 // SP: O(v) where v is the number of vertices
