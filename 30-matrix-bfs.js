@@ -47,7 +47,7 @@ const bfs = (grid) => {
       ]
 
       // check each neighbor
-      for(const [dr, dc] of directions) {
+      for (const [dr, dc] of directions) {
         const newR = r + dr;
         const newC = c + dc;
         const pos = newR + ',' + newC;
