@@ -63,6 +63,8 @@ var climbStairs = function(n) {
     }
     return currentSum;
 };
+// Time Complexity: O(n), because it iterates from 2 to n once.
+// Space Complexity: O(1), because it only uses a few variables to store the state, regardless of the size of n.
 
 console.log(climbStairs(2)) // 2
 console.log(climbStairs(3)) // 3
