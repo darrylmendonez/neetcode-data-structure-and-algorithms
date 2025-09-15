@@ -6,7 +6,7 @@
 // 0 & 0 returns 0
 // 0 & 1 returns 0
 // 1 & 0 returns 0
-// 1 & 1 returns 0
+// 1 & 1 returns 1
 
 // OR
 // 0 | 0 returns 0
@@ -56,10 +56,10 @@
   const countBits = (n) => {
     let count = 0;
     while (n > 0) {
-      if (n & 1 === 1) {
+      if ((n & 1) === 1) {
         count++;
       }
-      n = n >> 1; // same as n // 2
+      n = n >> 1; // same as n // 2 (or dividing by 2)
     }
     return count;
   }

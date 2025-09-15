@@ -88,7 +88,7 @@ var uniquePathsWithObstaclesDynamicProgramming = function(obstacleGrid) {
 
         // if cell is blocked off
         if (obstacleGrid[r][c] === 1) {
-          dp[c] = 0;
+          dp[c] = 0; // set current column to 0 since no path can use this cell
 
         // if cell is not blocked off
         // since we added an extra slot when we initialized dp, we don't need to worry if we're at the rightmost column. The extra slot has a 0 so when we need to check the value to the right in our rightmost column, we can just add a 0 which will have no impact in our calculation for finding the value for the current column - dp[c]
