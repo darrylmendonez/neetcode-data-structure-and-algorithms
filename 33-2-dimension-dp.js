@@ -13,12 +13,15 @@
 // Brute Force Solution
 
 const bruteForce = (r, c, rows, cols) => {
+  // if we're out-of-bounds
   if (
-    r === rows ||
-    c === cols
+    r === rows || // if we're one row below the grid
+    c === cols // if we're one column to the right of the grid
   ) {
     return 0;
   }
+
+  // if we're at the end position
   if (
     r === rows - 1 &&
     c === cols - 1
@@ -29,11 +32,11 @@ const bruteForce = (r, c, rows, cols) => {
   return (bruteForce(r + 1, c, rows, cols) + bruteForce(r, c + 1, rows, cols));
 }
 
-// TC & SC: O(2^(n + m))
+// TC & SC: O(2^(n + m)) - an exponential solution
 
 console.log(bruteForce(0, 0, 4, 4));
 
-// Top-Down Dynamic Approach
+// Top-Down Dynamic Approach - using caching to avoid repeating calculations
 
 const memoization = (r ,c, rows, cols, cache) => {
   if (
