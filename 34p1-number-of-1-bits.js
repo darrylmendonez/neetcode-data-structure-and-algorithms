@@ -52,5 +52,16 @@
  * @return {number}
  */
 var hammingWeight = function(n) {
-    
+    let count = 0;
+    while (n > 0) {
+      if ((n & 1) === 1) {
+        count++;
+      }
+      n = n >> 1;
+    }
+    return count;
 };
+
+console.log(hammingWeight(11)) // 3
+console.log(hammingWeight(128)) // 1
+console.log(hammingWeight(2147483645)) // 30
