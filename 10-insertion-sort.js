@@ -15,8 +15,8 @@
   for (let i = 1; i < num.length; i++) {
     let j = i - 1; // reset j back to be directly to the left of i
     while (
-      j >= 0 // make sure we're not out-of-bounds
-      && arr[j + 1] < arr[j] // make sure the right pointer is less than the left pointer
+      j >= 0 && // make sure we're not out-of-bounds
+      arr[j + 1] < arr[j] // make sure the right pointer is less than the left pointer
     ) {
       let temp = arr[j + 1];
       arr[j + 1] = arr[j];
