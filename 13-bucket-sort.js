@@ -7,11 +7,11 @@
   
   // For a bucket sort, we iterate through the input array and count how often an element appears and store that in another array
 
-  [2, 1, 2 , 0, 0, 2] // example input array
-  [0, 0, 0] // example of an initialized counts array
+  // [2, 1, 2 , 0, 0, 2] // example input array
+  // [0, 0, 0] // example of an initialized counts array
 
-// idx:     0  1  2
-           [2, 1, 3] // updated counts array
+// idx:        0  1  2
+          //  [2, 1, 3] // updated counts array
 
   // in this case, 0 appears 2 times, 1 appears 1 time, and 2 appears 3 times. The value of each element in the counts array represents the number of times each number appears in the input array. Keep in mind that the index does not necessarily reflect the value of the element in the input array.
 
@@ -19,8 +19,14 @@
 
 
   // psuedo code:
-  const arr = [2, 1, 2 , 0, 0, 2]
-  const counts = [0, 0, 0]
+const nums = [2, 1, 2 , 0, 0, 2]
+
+const bucketSort = (arr) => {
+  if (arr.length === 0) {
+    return arr;
+  }
+  const max = Math.max(...arr);
+  const counts = new Array(max + 1).fill(0);
   for (let i = 0; i < arr.length; i++) {
     counts[arr[i]]++;
   }
@@ -33,6 +39,9 @@
     }
   }
   return arr;
+}
+
+console.log(bucketSort(nums));
 
   // time complexity: O(n) - even though we have a nested loop, doesn't mean it's O(n^2). The nested loop doesn't run every single time. the i pointer increments everytime the code actually runs and evaluates. The i pointer starts at the beginning and keeps being incremented until it goes out of bounds. in the example the nested loop only ran 2 times, then 1 time, and then 3 times and all of those will total up to be n, which is why this nested for-loop is still O(n) not O(n^2). Also, the for-loop where we iterate through the input array one time, so that is also O(n) and when added together we get O(2n) which reduces to O(n).
 
