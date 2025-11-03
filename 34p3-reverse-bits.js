@@ -47,7 +47,7 @@
 var reverseBits = function(n) {
     let result = 0;
     for (let i = 0; i < 32; i++) { 
-      const currBit = (n >> i) & 1; // take n and shift it to the right, and then compare n and i with an AND operator, so that the currBit will be eitheer 1 or 0
+      const currBit = (n >> i) & 1; // take n and shift it to the right. The & 1 comparison is essentially asking, what is the rightmost bit which will be either 1 or 0
       result = result | (currBit << (31 - i));
     }
     return result >>> 0; // ensure unsigned 32-bit result

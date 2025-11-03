@@ -38,12 +38,15 @@ const removeDuplicates = (nums) => {
   let n = nums.length;
   while (r < n) {
     nums[l] = nums[r];
-    while (r < n && nums[r] === nums[l]) {
-      r++;
+    while (
+      r < n
+      && nums[r] === nums[l] // if they are the same...
+    ) {
+      r++; // then move the right pointer to the next index
     }
-    l++;
+    l++; // once nums[r] does not equal nums[l], then move left pointer to the next index
   }
-  return l;
+  return l; // the index of l, will also be the number of how many unique chars there are in the array
 }
 
 console.log(removeDuplicates([2,10,10,30,30,30])) // 3

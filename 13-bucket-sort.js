@@ -17,8 +17,6 @@
 
   // once we have the counts arr updated, we can just replace the elements in arr. We know that the 0's will go first and that we have 2 of them so we can replace the first two elements in arr with 0's. and we continue the same process... We don't even need to swap the initial values, just simply replace them. So far, all other sort algorithms required us to swap the elements - insertion, merge, and quick sort. But with bucket sort we don't have to bother with swapping.
 
-
-  // psuedo code:
 const nums = [2, 1, 2 , 0, 0, 2]
 
 const bucketSort = (arr) => {
