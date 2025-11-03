@@ -40,6 +40,8 @@ class Solution {
      * @return {ListNode}
      */
     mergeKLists(lists) {
+      
+      // edge cases
       if (!lists || lists.length === 0) return null;
       if (lists.length === 1) return lists[0];
 

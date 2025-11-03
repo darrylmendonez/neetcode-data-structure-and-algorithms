@@ -49,48 +49,48 @@
       
 //  [3]   [2]
 
-const mergeSort = (nums, start, end) => {
+const mergeSort = (arr, start, end) => {
   if (end - start + 1 <= 1) {
-    return nums;
+    return arr;
   }
   const mid = Math.floor((start + end) / 2);
-  mergeSort(nums, start, mid);
-  mergeSort(nums, mid + 1, end);
-  merge(nums, start, mid, end);
-  return nums;
+  mergeSort(arr, start, mid);
+  mergeSort(arr, mid + 1, end);
+  merge(arr, start, mid, end);
+  return arr;
 }
 
-const merge = (nums, start, mid, end) => {
+const merge = (arr, start, mid, end) => {
   let length1 = mid - start + 1;
   let length2 = end - mid;
   const leftArray = new Array(length1);
   const rightArray = new Array(length2);
   for (let i = 0; i < length1; i++) {
-    leftArray[i] = nums[start + i];
+    leftArray[i] = arr[start + i];
   }
   for (let j = 0; j < length2; j++) {
-    rightArray[j] = nums[mid + 1 + j];
+    rightArray[j] = arr[mid + 1 + j];
   }
   let i = 0;
   let j = 0;
   let k = start;
   while (i < length1 && j < length2) {
     if (leftArray[i] <= rightArray[j]) {
-      nums[k] = leftArray[i];
+      arr[k] = leftArray[i];
       i++;
     } else {
-      nums[k] = rightArray[j];
+      arr[k] = rightArray[j];
       j++;
     }
     k++;
   }
   while (i < length1) {
-    nums[k] = leftArray[i];
+    arr[k] = leftArray[i];
     i++;
     k++;
   }
   while (j < length2) {
-    nums[k] = rightArray[j];
+    arr[k] = rightArray[j];
     j++;
     k++;
   }

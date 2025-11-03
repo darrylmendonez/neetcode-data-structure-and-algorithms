@@ -11,19 +11,23 @@
   // then compare again
     // If they're sorted then increment the counter
     // If not, we need swap their values but we also need to check the previous index and compare those two values until we find a previous value that is less than or equal to the current
-
-  for (let i = 1; i < num.length; i++) {
-    let j = i - 1; // reset j back to be directly to the left of i
-    while (
-      j >= 0 && // make sure we're not out-of-bounds
-      arr[j + 1] < arr[j] // make sure the right pointer is less than the left pointer
-    ) {
-      let temp = arr[j + 1];
-      arr[j + 1] = arr[j];
-      arr[j] = temp;
-      j--; // decrement to compare the index to the left to arr[j]
+  const insertionSort = (arr) => {
+    for (let i = 1; i < arr.length; i++) {
+      let j = i - 1; // reset j back to be directly to the left of i
+      while (
+        j >= 0 && // make sure we're not out-of-bounds
+        arr[j + 1] < arr[j] // make sure the right pointer is less than the left pointer
+      ) {
+        const temp = arr[j + 1];
+        arr[j + 1] = arr[j];
+        arr[j] = temp;
+        j--; // decrement to compare the index to the left to arr[j]
+      }
     }
+    return arr;
   }
+
+  console.log(insertionSort(nums));
 
   // the comparison arr[j + 1] < arr[j] keeps our array stable. If we had an array [7, 3, 7], when we get to the point where we are comparing both 7's, the 7 that appears first would remain on the left of the second 7. This happens because the comparison is <. If it was <=, the 7's would swap. By using only <, we ensure that our sorting is considered stable because it preserves the order of elements that are the same
 
